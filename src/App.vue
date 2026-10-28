@@ -3,6 +3,9 @@ import DataTable from 'datatables.net';
 import { nextTick, ref } from 'vue';
 
 import AjaxData from './Ajax.vue';
+import ColumnsSimple from './ColumnsSimple.vue';
+import ColumnsTag from './ColumnsTag.vue';
+import ColumnsThead from './ColumnsThead.vue';
 import HtmlSource from './HtmlSource.vue';
 import JsData from './JsData.vue';
 import ReactiveDt from './Reactive.vue';
@@ -43,6 +46,9 @@ function show(item: string) {
 			<li><button @click="show('select')">Select extension</button></li>
 			<li><button @click="show('reactive')">Reactive data</button></li>
 			<li><button @click="show('auto-slots')">Auto slots</button></li>
+			<li><button @click="show('columns-simple')">Columns: Simple</button></li>
+			<li><button @click="show('columns-thead')">Columns: With thead</button></li>
+			<li><button @click="show('columns-tag')">Columns: With children</button></li>
 		</ul>
 
 		<div v-show="display === 'basic'">
@@ -65,6 +71,15 @@ function show(item: string) {
 		</div>
 		<div v-show="display === 'auto-slots'">
 			<Slots />
+		</div>
+		<div v-show="display === 'columns-simple'">
+			<ColumnsSimple />
+		</div>
+		<div v-show="display === 'columns-thead'">
+			<ColumnsThead />
+		</div>
+		<div v-show="display === 'columns-tag'">
+			<ColumnsTag />
 		</div>
 	</div>
 </template>
